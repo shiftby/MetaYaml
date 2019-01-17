@@ -1,5 +1,5 @@
 {
-    "name": "romaricdrigon/metayaml",
+    "name": "shiftby/metayaml",
     "type": "library",
     "description": "Using [Yaml|Xml|json] schemas files to validate [Yaml|Xml|json] ",
     "homepage": "http://github.com/romaricdrigon/MetaYaml",
