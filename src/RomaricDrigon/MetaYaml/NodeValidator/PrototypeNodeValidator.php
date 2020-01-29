@@ -20,7 +20,7 @@ class PrototypeNodeValidator extends NodeValidator
         $n = 0;
 
         foreach ($data as $key => $subdata) {
-            if ($n >= $max) { // because we count from 0
+            if ($max !== null && $n >= $max) { // because we count from 0
                 throw new NodeValidatorException($name, "Prototype node '$name' has too much children");
             }
 
