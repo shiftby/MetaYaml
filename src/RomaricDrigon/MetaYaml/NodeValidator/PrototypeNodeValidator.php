@@ -16,8 +16,12 @@ class PrototypeNodeValidator extends NodeValidator
 
         // get min and max number of prototype repetition
         $min = isset($node[$this->schema_validator->getFullName('min_items')]) ? $node[$this->schema_validator->getFullName('min_items')] : 0;
-        $max = isset($node[$this->schema_validator->getFullName('max_items')]) ? $node[$this->schema_validator->getFullName('max_items')] : 200;
+        $max = array_key_exists($this->schema_validator->getFullName('max_items'), $node) ? $node[$this->schema_validator->getFullName('max_items')] : 200;
         $n = 0;
+        
+        if (array_key_exists($this->schema_validator->getFullName('max_items'), $node)) {
+            $max = $node[$this->schema_validator->getFullName('max_items')] !== null ? $max : null;
+        }
 
         foreach ($data as $key => $subdata) {
             if ($max !== null && $n >= $max) { // because we count from 0
